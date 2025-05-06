@@ -35,16 +35,16 @@ This guide shares a hands-on experience setting up both tools in Docker and docu
 - Sufficient privileges (sudo/root)
 - Kali Linux environment (or any modern Debian-based distro)
 
-```bash
+```bash```
 sudo apt update && sudo apt install docker.io
 sudo systemctl enable --now docker
 
-🐝 Installing TheHive
+## 🐝 Installing TheHive
 
 docker pull strangebee/thehive:5.0.23
 docker run -d --name thehive -p 9000:9000 strangebee/thehive:5.0.23
 
-⚠️ Troubleshooting TheHive
+## ⚠️ Troubleshooting TheHive
 ❌ Error: AccessDeniedException: /opt/thp/thehive/db/je.properties
 🔎 Cause:
 
@@ -61,12 +61,13 @@ sudo chown -R thehive:thehive /opt/thp
 🔎 Cause:
 
 TheHive wasn't installed as a system service—this is expected in Docker-based deployment.
-🔬 Installing Cortex
+
+## 🔬 Installing Cortex
 
 docker pull cortexproject/cortex:latest
 docker run -d -p 9001:9001 --name cortex cortexproject/cortex:latest
 
-⚒️ Troubleshooting Cortex
+## ⚒️ Troubleshooting Cortex
 
 If the image was pulled but not run:
 
@@ -83,7 +84,7 @@ docker ps -a                 # List all containers
 docker rm <container-id>     # Remove the container
 docker rmi <image-id>        # Now remove the image
 
-📦 Docker Cleanup & Image Management
+## 📦 Docker Cleanup & Image Management
 
 Remove stopped containers:
 
@@ -93,10 +94,11 @@ Remove unused images:
 
 docker image prune
 
-✅ Conclusion
+## ✅ Conclusion
 
 This documentation serves as a quick reference for setting up TheHive and Cortex using Docker. It reflects real-world setup challenges and resolutions, helping analysts avoid common pitfalls.
-🤝 Contributions
+
+## 🤝 Contributions
 
 Feel free to fork, contribute, or open issues to help improve this documentation. Security is a collaborative effort!
 
